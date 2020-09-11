@@ -39,7 +39,16 @@ function HomeScreen({navigation}) {
                 }}>
         <Button color='black' title="팀프앙 로그인" onPress={() => navigation.navigate('Details')}/> 
         </TouchableHighlight>
-        <Button color='white' title="계정이 없으신가요?" onPress={() => navigation.navigate('Details')}/> 
+        <TouchableHighlight 
+                style ={{
+                    width:'100%',
+                    borderRadius:2,
+                    backgroundColor : 'rgb(244,227,103)',
+                    marginTop :10
+                }}>
+         <Button color='white' title="계정이 없으신가요?" onPress={() => navigation.navigate('SignUpTerm')}/> 
+        </TouchableHighlight>
+       
 
         </View>
      
@@ -61,7 +70,24 @@ function DetailsScreen({navigation}) {
     </View>
   );
 }
+
 const Stack = createStackNavigator();
+
+
+function SignUpTermScreen({navigation}){
+  return(
+    <View style={styles.container}>
+      <View style={styles.TermHeader}>
+      <Image source={Images.brandIcon} style={styles.TermImage}></Image>
+      <Text style={styles.TermText}>팀프앙</Text>
+      </View>
+      <View>
+        <Text style={styles.agreement} >모든 약관에 동의합니다.</Text>
+      </View>
+    </View>
+  );
+}
+
 
 function App() { //main
   return (
@@ -72,7 +98,7 @@ function App() { //main
         opacity: 0,
         borderBottomWidth: 0,}}} />
         <Stack.Screen name="Details" component={DetailsScreen} />
-        
+        <Stack.Screen name="SignUpTerm" component={SignUpTermScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -105,8 +131,35 @@ const styles = StyleSheet.create({
   kakaoButton: {
     width: 50,
     height: 20,
-    
+  },
+  TermHeader:{
+    flexDirection:'row',
+    marginTop: 30,
+    marginBottom:30,
+    marginLeft:30,
+    marginRight:100
+  },
+
+  TermImage:{
+    width: 50, 
+    height: 50,
+    // flex: 3,
+    resizeMode: "cover"},
+
+  TermText:{ 
+    marginTop:-10,
+    color:'#399FFB',
+    fontWeight: 'bold',
+    fontSize: 50,    
+  },
+
+  agreement:{
+    color:'rgb(74,74,74)',
+    fontWeight: 'bold',
+    fontSize: 20,
+    marginLeft:30   
   }
+
 });
 
 
