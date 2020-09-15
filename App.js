@@ -81,8 +81,18 @@ function SignUpTermScreen({navigation}){
       <Image source={Images.brandIcon} style={styles.TermImage}></Image>
       <Text style={styles.TermText}>팀프앙</Text>
       </View>
-      <View>
+      <View style={{flexDirection:'row',marginBottom:100}}>
         <Text style={styles.agreement} >모든 약관에 동의합니다.</Text>
+        <Image source={Images.right} style={styles.check}></Image>  
+      </View> 
+      <Image source={Images.line}></Image>  
+      <View>
+      <Text style={styles.DetailTerm}>팀프앙</Text>
+      <Text style={styles.DetailTerm}>팀프앙</Text>
+      <Text style={styles.DetailTerm}>팀프앙</Text>
+      <Text style={styles.DetailTerm}>팀프앙</Text>
+      <Text style={styles.DetailTerm}>팀프앙</Text>
+
       </View>
     </View>
   );
@@ -144,12 +154,14 @@ const styles = StyleSheet.create({
     width: 50, 
     height: 50,
     // flex: 3,
+    marginRight:10,
+
     resizeMode: "cover"},
 
   TermText:{ 
     marginTop:-10,
     color:'#399FFB',
-    fontWeight: 'bold',
+    // marginRight:60,
     fontSize: 50,    
   },
 
@@ -157,7 +169,18 @@ const styles = StyleSheet.create({
     color:'rgb(74,74,74)',
     fontWeight: 'bold',
     fontSize: 20,
-    marginLeft:30   
+    marginLeft:30,   
+    marginRight:110,
+  },
+
+  check:{
+    width:30,
+    height:30,
+  },
+
+  DetailTerm:{
+    fontSize:20,
+
   }
 
 });
