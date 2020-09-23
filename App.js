@@ -96,6 +96,15 @@ function LoginScreen({navigation}) {
 const Stack = createStackNavigator();
 
 
+function SignUpScreen({navigation}){
+  return(
+    <View style={{alignItems:'center'}}>
+      <Image source={Images.appIcon} style={{width:'40%', height:'40%'}} ></Image>
+      <Image source={Images.line} style={{width:'100%'}} ></Image>
+    </View>
+  )
+}
+
 function SignUpTermScreen({navigation}){
   return(
     <View style={{backgroundColor:'rgb(255,255,255)', width:'100%', height:'100%'}} >
@@ -155,8 +164,8 @@ function SignUpTermScreen({navigation}){
       </View>
 
       {/* justifyContent:'center', alignItems:'center' 이거 왜 적용안되지 */}
-      <TouchableOpacity onPress={() => navigation.navigate('Details')}>
-        <View style={{ marginLeft:5}} onPress={()=> navigation.navigate('Details')}>   
+      <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
+        <View style={{ marginLeft:5}} >   
           <Image source={Images.TermButton} style={{width:350,height:50}} ></Image> 
         </View>
       </TouchableOpacity>
@@ -174,7 +183,8 @@ function App() { //main
         <Stack.Screen name="Details" component={DetailsScreen} />
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="SignUpTerm" component={SignUpTermScreen} />
-        
+        <Stack.Screen name="SignUp" component={SignUpScreen} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );
