@@ -1,7 +1,7 @@
 // In App.js in a new project
 
 import * as React from 'react';
-import { View, Text, Button,StyleSheet,ImageBackground,Image, SafeAreaView} from 'react-native';
+import { View, Text, Button,StyleSheet,ImageBackground,Image, SafeAreaView, TextInput} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Images from './assets/images';
@@ -20,12 +20,19 @@ const BasicButton = styled.TouchableHighlight`
     height: 45
     background-color: ${(props:StyleProps) => props.background ? props.background : 'white'}
 `
+const BasicInput =styled.TextInput`
+        style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+        onChangeText={(text) => this.setState({text})}
+        placeholder = 'Enter text'
+        placeholderTextColor = 'red'
+        value={this.state.text}   
+`
+
 
 function HomeScreen({navigation}) {
   navigationOptions = { header: null };
   return ( 
-    
-    <View style ={styles.container}> 
+    <View style ={{flex:1}}> 
       <ImageBackground source={Images.homeWideImage} style={styles.image}>
           <View style ={styles.inner_container}> 
               <Image style ={{width:50,height:50, marginBottom:15 }}source={Images.brandIcon}/>
@@ -38,7 +45,7 @@ function HomeScreen({navigation}) {
         <View style ={{flex:3, marginLeft:30, marginRight:30, flexDirection: 'column'}}>
             
             <View style ={styles.center_container}>
-              <BasicButton onPress={() => navigation.navigate('Details')}>
+              <BasicButton onPress={() => navigation.navigate('Login')}>
                     <Text style = {styles.midHeaderText}>팀프앙으로 로그인</Text>
               </BasicButton>
             </View>
@@ -80,14 +87,24 @@ function DetailsScreen({navigation}) {
 
 function LoginScreen({navigation}) {
   return (
-    <View style={styles.container}>
-      <Text>Details Screen</Text>
-      <Button
-        title="Go to Details... again"
-        onPress={() => navigation.push('Details')}
-      />
-      <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
-      <Button title="Go back" onPress={() => navigation.goBack()} />
+    <View style ={styles.container}>
+      <View style={{flex:2, backgroundColor: 'red'}}>
+      </View>
+      <View style={{flex:2}}>
+        <View style={styles.center_container}>
+          <Image style ={{width:70,height:70}}source={Images.brandIcon}/>
+        </View>
+        <View style={styles.center_container}>
+        <BasicInput Inputplaceholder="hello"/>
+        </View>
+        <View style={{flex:1, backgroundColor: 'yellow'}}>
+        </View>
+        <View style={{flex:1, backgroundColor: 'red'}}>
+        </View>
+      </View>
+      
+      <View style={{flex:2, backgroundColor: 'green'}}>
+      </View>
     </View>
   );
 }
@@ -98,7 +115,8 @@ const Stack = createStackNavigator();
 
 function SignUpTermScreen({navigation}){
   return(
-    <View style={{backgroundColor:'rgb(255,255,255)', width:'100%', height:'100%'}} >
+    <View style={styles.container}>
+    <View style={styles.center_container}>
     <View style={{ marginBottom:20, marginLeft:30,marginRight:30}}>
       <View style={styles.TermHeader}>
       <Image source={Images.brandIcon} style={{ width: 50,height: 50,marginRight:10,resizeMode: "cover"}}></Image>
@@ -162,6 +180,7 @@ function SignUpTermScreen({navigation}){
       </TouchableOpacity>
     </View>
     </View>
+    </View>
   );
 }
 
@@ -182,11 +201,11 @@ function App() { //main
 
 const styles = StyleSheet.create({
   container: {
-    // backgroundColor: '#FFFFFF',
+    backgroundColor: '#FFFFFF',
     flex: 1,
+    paddingTop: 40,
   },
-  inner_container: {
-    // backgroundColor: 'blue',
+  inner_container: { //메인
     flex: 1,
     marginLeft:40,
     marginTop:60,
@@ -194,7 +213,7 @@ const styles = StyleSheet.create({
   center_container: {
     flex: 1,
     justifyContent: "center",
-    // backgroundColor: 'blue',
+    alignItems: 'center',
 
   },
   headerText: {
@@ -225,7 +244,9 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     marginTop: 30,
     marginBottom:30,
-    marginRight:100
+    marginRight:100,
+    fontFamily: 'NEXONLv2GothicMedium',
+
   },
 
   TermText:{ 
@@ -233,6 +254,7 @@ const styles = StyleSheet.create({
     color:'#399FFB',
     // marginRight:60,
     fontSize: 50,    
+    fontFamily: 'NEXONLv2GothicMedium',
   },
 
   agreement:{
