@@ -30,7 +30,7 @@ Teampang is an assisstant web/app service for managing team projects. It is espe
 |Jaeyong Kim|JaeYooong|rladltjq123@hanmail.net|
 |Sangje Jeong|sanggae4133|sanggae4133@naver.com|
 |Seungah Kim|seungahkim|safg0421@gmail.com|
-|Sumin Kim|||
+|Sumin Kim|sumini97|jamie1541@naver.com|
   
 ## License  
 Chungang University, TeamPang 2020
